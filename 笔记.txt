@@ -1,0 +1,123 @@
+rpc : msgpack yar 
+
+  goland
+
+  商品秒杀
+客户端：限流加缓存，验证码，cdn
+lvs：四层模型负载均衡
+nginx:七层负载均衡
+server: apcu + redis +消息队列+swoole+lua脚本（实现原子操作）
+db：分布式数据库，mycat lvs keepalived
+主从复制，读写分离(binglog,io线程，sql线程)
+
+redis 基本语法 zrevrangebyscore，5种数据类型（string, hash,list,set,zset）百分之八十熟悉程度
+主从复制读写分离，rdb快照原理，写缓存区，高可用sentinel(多进程监控，ping命令master服务器)
+单进程处理方式 避免抢锁 提高效率 大约qps 10w/s 
+分布式锁 setnx （过期时间，延迟过期，value唯一（防止当前线程锁被另外锁释放））
+尝试订阅发布，客服端阻塞等待消息
+
+网络通信
+七层模型-》五层模型，物理层（比特流） 数据链路层（数据帧 mac地址） 网络层（报文ip地址） 传输层（端口）应用层（客户端软件一些信息）
+arp icmp ftp http ssh smtp pop3 imap
+路由器 （网络层 链接到外面有个网关地址） 交换机（物理层 局域网）
+普通http请求过程：dns获取ip应用于网络层 arp获取mac地址应用链路层 tcp链接 三次握手 四层断开（syn ack syn+1 ack+1）
+网卡-》内核socket（百万链接，红黑树，双向链表（回调函数））（IO多路复用epoll）
+nginx 反向代理 负载均衡 限流 重写 虚拟机 缓存时间（master work work）
+fpm9000 sapi过程 一主多从 fpm进程
+
+mysql 索引 基本原理（api，连接池，缓冲区，解析树，优化器，执行计划，引擎，数据）
+
+nginx 
+sendfile 正向代理代理客户端 反向代理服务端 防盗链 crsf
+lvs DR模型 awk 动静分离 +lua灰度发布（指向不同端口location） 502 504
+性能优化 ab压测工具 Grpc
+
+php yield 数组基于hashTable 双向链表? zval 32B->16B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
